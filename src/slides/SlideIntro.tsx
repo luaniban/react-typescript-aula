@@ -1,3 +1,5 @@
+import { slides } from "../data/slides";
+
 interface SlideIntroProps {
   onComecar: () => void;
 }
@@ -21,26 +23,12 @@ export function SlideIntro({ onComecar }: SlideIntroProps) {
         </p>
 
         <div className="intro-topicos">
-          <div className="topico">
-            <span className="topico-num">01</span>
-            <span>Funções e Tipos Básicos</span>
-          </div>
-          <div className="topico">
-            <span className="topico-num">02</span>
-            <span>Props de Componentes</span>
-          </div>
-          <div className="topico">
-            <span className="topico-num">03</span>
-            <span>useState Tipado</span>
-          </div>
-          <div className="topico">
-            <span className="topico-num">04</span>
-            <span>Interfaces e Respostas de API</span>
-          </div>
-          <div className="topico">
-            <span className="topico-num">05</span>
-            <span>Generics</span>
-          </div>
+          {slides.map((slide) => (
+            <div className="topico" key={slide.id}>
+              <span className="topico-num">{String(slide.id).padStart(2, "0")}</span>
+              <span>{slide.titulo}</span>
+            </div>
+          ))}
         </div>
 
         <button className="btn-comecar" onClick={onComecar}>

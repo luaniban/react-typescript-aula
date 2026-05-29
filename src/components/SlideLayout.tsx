@@ -43,6 +43,14 @@ export function SlideLayout({ slide, total, onAnterior, onProximo }: SlideLayout
         <p>{slide.descricao}</p>
       </div>
 
+      <div className="js-resultado">
+        <div className="js-resultado-resumo">
+          <span>Resultado no JavaScript</span>
+          <strong>{slide.resultadoJS.resultado}</strong>
+        </div>
+        <p>{slide.resultadoJS.problema}</p>
+      </div>
+
       <CodeComparacao codigoJS={slide.codigoJS} codigoTS={slide.codigoTS} />
 
       <footer className="slide-footer">

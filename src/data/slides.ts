@@ -3,6 +3,10 @@ export interface SlideData {
   titulo: string;
   subtitulo: string;
   descricao: string;
+  resultadoJS: {
+    resultado: string;
+    problema: string;
+  };
   codigoJS: string;
   codigoTS: string;
   pontos: string[];
@@ -15,6 +19,10 @@ export const slides: SlideData[] = [
     subtitulo: "JavaScript aceita qualquer valor, TypeScript garante o contrato",
     descricao:
       "No JavaScript, funções aceitam qualquer tipo de argumento sem reclamar. Isso gera bugs silenciosos que só aparecem em produção.",
+    resultadoJS: {
+      resultado: "NaN e undefined",
+      problema: "Tipos errados e typos passam sem aviso até o código rodar.",
+    },
     codigoJS: `// JavaScript — sem verificação de tipos
 function calcularDesconto(preco, desconto) {
   return preco - preco * desconto;
@@ -75,6 +83,10 @@ const u = criarUsuario("Ana", "ana@email.com", 25);
     subtitulo: "TypeScript substitui PropTypes com muito mais poder",
     descricao:
       "Sem tipagem, qualquer valor pode ser passado como prop. A interface define o contrato exato do componente, e o editor avisa se você errar.",
+    resultadoJS: {
+      resultado: "TypeError, undefined ou NaN na interface",
+      problema: "Props erradas só quebram quando o componente renderiza ou quando o usuário clica.",
+    },
     codigoJS: `// JavaScript — props sem contrato
 function CartaoProduto({
   nome, preco, quantidade, onClick
@@ -146,6 +158,10 @@ function CartaoProduto({
     subtitulo: "TypeScript obriga você a tratar null e undefined",
     descricao:
       "Um dos bugs mais comuns em React é acessar propriedades de estado que ainda não foi carregado. TypeScript torna isso impossível de ignorar.",
+    resultadoJS: {
+      resultado: "TypeError ou estado incoerente",
+      problema: "O acesso a null e a troca de number para string passam pelo editor.",
+    },
     codigoJS: `// JavaScript — null safety ignorado
 function PerfilUsuario() {
   const [usuario, setUsuario] = useState(null);
@@ -225,6 +241,10 @@ function PerfilUsuario() {
     subtitulo: "Tipagem de respostas HTTP elimina erros de campo",
     descricao:
       "Ao buscar dados de uma API, sem tipos você não sabe se o campo existe, qual o nome exato, ou qual o tipo do valor. Interfaces resolvem isso.",
+    resultadoJS: {
+      resultado: "Tela em branco ou dados undefined",
+      problema: "Campos com typo e formatos inesperados só aparecem depois da resposta da API.",
+    },
     codigoJS: `// JavaScript — API sem tipagem
 async function carregarProdutos() {
   const res = await fetch("/api/produtos");
@@ -292,6 +312,10 @@ async function carregarProdutos(): Promise<Produto[]> {
     subtitulo: "Componentes e funções reutilizáveis com segurança de tipos",
     descricao:
       "Generics permitem criar componentes e funções que funcionam com qualquer tipo, mas ainda mantêm a segurança de tipos em cada uso específico.",
+    resultadoJS: {
+      resultado: "Typos em callbacks e retorno any",
+      problema: "A lógica reutilizável perde o tipo do item e deixa chamadas inválidas parecerem corretas.",
+    },
     codigoJS: `// JavaScript — sem generics
 // Precisa duplicar código ou perder tipagem
 
@@ -371,6 +395,10 @@ const nome = primeiroItem(["Ana", "Bruno"]); // string | undefined
     subtitulo: "TypeScript conhece os eventos nativos do navegador",
     descricao:
       "Um problema comum no React é descobrir o tipo correto de cada evento. Com TypeScript, o editor sabe se você está lidando com input, form, button ou qualquer outro elemento do DOM.",
+    resultadoJS: {
+      resultado: "TypeError: event.targt is undefined",
+      problema: "O editor não sabe que o evento veio de um input e deixa typos no DOM passarem.",
+    },
     codigoJS: `// JavaScript — evento sem contrato claro
 function LoginForm() {
   function handleSubmit(event) {
@@ -436,6 +464,10 @@ function LoginForm() {
     subtitulo: "TypeScript ajuda mais do que atrasa",
     descricao:
       "A sensação inicial pode ser de escrever mais. Na prática, o VS Code devolve esse tempo com autocomplete, navegação, refatoração e erros encontrados antes de abrir o navegador.",
+    resultadoJS: {
+      resultado: "Erro descoberto em teste manual",
+      problema: "Renomear campos ou mudar contratos não avisa todos os pontos afetados.",
+    },
     codigoJS: `// JavaScript — produtividade depende da memória
 function salvarUsuario(usuario) {
   return api.post("/usuarios", {
@@ -492,6 +524,10 @@ salvarUsuario(usuario);
     subtitulo: "O ecossistema JavaScript aprendeu a falar TypeScript",
     descricao:
       "TypeScript não serve só para componentes React. Bibliotecas modernas já publicam seus próprios tipos, e bibliotecas antigas muitas vezes recebem tipos pela comunidade no DefinitelyTyped.",
+    resultadoJS: {
+      resultado: "buscar.cancelar is not a function",
+      problema: "Sem tipos da biblioteca, métodos inexistentes parecem aceitáveis até o runtime.",
+    },
     codigoJS: `// JavaScript — biblioteca externa sem tipos
 import debounce from "lodash/debounce";
 
@@ -538,6 +574,10 @@ buscar.cancel();
     subtitulo: "TypeScript tem custo de aprendizado e configuração",
     descricao:
       "A parte honesta: no começo, configurar o projeto e entender mensagens grandes pode cansar. O ponto é tratar isso como investimento, não como burocracia sem retorno.",
+    resultadoJS: {
+      resultado: "TypeError ao chamar trim em null",
+      problema: "O caminho rápido adia a validação para o momento em que o usuário executa o fluxo.",
+    },
     codigoJS: `// JavaScript — começo rápido, custo adiado
 function normalizarProduto(produto) {
   return {
@@ -590,6 +630,10 @@ function normalizarProduto(produto: ProdutoAPI) {
     subtitulo: "Como começar sem transformar TypeScript em sofrimento",
     descricao:
       "A melhor forma de usar TypeScript é deixar ele ajudar sem tentar tipar tudo manualmente. Comece pelas bordas do sistema, evite any e migre aos poucos.",
+    resultadoJS: {
+      resultado: "any esconde todos os problemas",
+      problema: "O código compila, mas typos e valores inválidos voltam a passar como em JavaScript puro.",
+    },
     codigoJS: `// Antipadrões comuns ao começar
 let usuario: any = await resposta.json();
 
@@ -641,6 +685,10 @@ function tratarErro(erro: unknown) {
     subtitulo: "Menos bugs, mais confiança e mais clareza para o time",
     descricao:
       "TypeScript não elimina todos os problemas, mas muda onde muitos deles aparecem: em vez de descobrir no navegador ou em produção, você descobre enquanto escreve.",
+    resultadoJS: {
+      resultado: "Bug aparece tarde",
+      problema: "Sem contratos, a confiança depende de memória, teste manual e disciplina.",
+    },
     codigoJS: `// Sem TypeScript, muita coisa depende de disciplina
 const projeto = {
   bugs: "aparecem tarde",
