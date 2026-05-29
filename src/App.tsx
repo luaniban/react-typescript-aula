@@ -14,17 +14,33 @@ function App() {
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight" || e.key === " ") {
-        irPara(slideAtual + 1);
-      } else if (e.key === "ArrowLeft") {
-        irPara(slideAtual - 1);
+      const target = e.target as HTMLElement | null;
+      const isTyping =
+        target?.tagName === "INPUT" ||
+        target?.tagName === "TEXTAREA" ||
+        target?.tagName === "SELECT" ||
+        target?.isContentEditable;
+
+      if (isTyping) return;
+
+      if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
+        e.preventDefault();
+        setSlideAtual((atual) => Math.min(atual + 1, slides.length));
+      } else if (e.key === "ArrowLeft" || e.key === "PageUp") {
+        e.preventDefault();
+        setSlideAtual((atual) => Math.max(atual - 1, 0));
       } else if (e.key === "Home") {
+        e.preventDefault();
         setSlideAtual(0);
+      } else if (e.key === "End") {
+        e.preventDefault();
+        setSlideAtual(slides.length);
       }
     };
-    window.addEventListener("keydown", handleKey);
-    return () => window.removeEventListener("keydown", handleKey);
-  }, [slideAtual]);
+
+    document.addEventListener("keydown", handleKey, true);
+    return () => document.removeEventListener("keydown", handleKey, true);
+  }, []);
 
   const slide = slides[slideAtual - 1];
 
@@ -44,6 +60,7 @@ function App() {
               className={`topbar-dot ${slideAtual === i ? "topbar-dot--ativo" : ""}`}
               onClick={() => setSlideAtual(i)}
               title={i === 0 ? "Introdução" : slides[i - 1].titulo}
+              aria-label={i === 0 ? "Ir para introdução" : `Ir para slide ${i}`}
             />
           ))}
         </div>
