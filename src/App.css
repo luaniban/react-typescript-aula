@@ -1,0 +1,462 @@
+/* ================================================
+   Layout base
+   ================================================ */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #0d1117;
+  color: #e6edf3;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  overflow: hidden;
+}
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* ================================================
+   Barra de navegação superior
+   ================================================ */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  height: 52px;
+  background: #161b22;
+  border-bottom: 1px solid #30363d;
+  flex-shrink: 0;
+  gap: 1rem;
+}
+
+.topbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.topbar-logo-js {
+  background: #f0db4f;
+  color: #000;
+  font-weight: 800;
+  font-size: 0.7rem;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.topbar-logo-ts {
+  background: #3178c6;
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.7rem;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.topbar-seta {
+  color: #8b949e;
+  font-size: 0.85rem;
+}
+
+.topbar-titulo {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #e6edf3;
+}
+
+.topbar-slides {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.topbar-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #30363d;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.topbar-dot:hover {
+  background: #8b949e;
+  transform: scale(1.2);
+}
+
+.topbar-dot--ativo {
+  background: #3178c6;
+  transform: scale(1.3);
+}
+
+.topbar-dica {
+  font-size: 0.72rem;
+  color: #484f58;
+}
+
+/* ================================================
+   Slide de Introdução
+   ================================================ */
+.intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem 2.5rem;
+  min-height: calc(100vh - 52px);
+  align-items: center;
+}
+
+.intro-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.intro-logos {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo-js {
+  background: #f0db4f;
+  color: #000;
+  font-weight: 800;
+  font-size: 2rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+}
+
+.logo-ts {
+  background: #3178c6;
+  color: #fff;
+  font-weight: 800;
+  font-size: 2rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 6px;
+}
+
+.intro-seta {
+  font-size: 2rem;
+  color: #484f58;
+}
+
+.intro-titulo {
+  font-size: 2.8rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.destaque-ts {
+  color: #3178c6;
+}
+
+.intro-subtitulo {
+  color: #8b949e;
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.intro-topicos {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.topico {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: #c9d1d9;
+}
+
+.topico-num {
+  background: #21262d;
+  color: #3178c6;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-family: monospace;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.btn-comecar {
+  background: #3178c6;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  align-self: flex-start;
+  margin-top: 0.5rem;
+}
+
+.btn-comecar:hover {
+  background: #2766b3;
+  transform: translateY(-1px);
+}
+
+.intro-info {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.info-card {
+  flex: 1;
+  background: #161b22;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #30363d;
+}
+
+.info-card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.info-card--js h3 {
+  color: #f0db4f;
+}
+
+.info-card--ts h3 {
+  color: #3178c6;
+}
+
+.info-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.info-card li {
+  font-size: 0.85rem;
+  color: #8b949e;
+  padding-left: 0.75rem;
+  position: relative;
+}
+
+.info-card--js li::before {
+  content: "x";
+  position: absolute;
+  left: 0;
+  color: #f85149;
+}
+
+.info-card--ts li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  color: #3fb950;
+}
+
+.info-vs {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #484f58;
+}
+
+/* ================================================
+   Slides de conteúdo
+   ================================================ */
+.slide {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.5rem 1.25rem;
+  gap: 0.75rem;
+  min-height: calc(100vh - 52px);
+  box-sizing: border-box;
+}
+
+.slide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.slide-titulo-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.slide-numero {
+  font-size: 0.72rem;
+  color: #484f58;
+  font-family: monospace;
+}
+
+.slide-titulo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0;
+  color: #e6edf3;
+}
+
+.slide-subtitulo {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #8b949e;
+}
+
+.slide-nav {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.btn-nav {
+  background: #21262d;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-nav:hover:not(:disabled) {
+  background: #30363d;
+}
+
+.btn-nav:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.slide-descricao {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+}
+
+.slide-descricao p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #8b949e;
+  line-height: 1.5;
+}
+
+/* ================================================
+   Comparação de código
+   ================================================ */
+.code-comparacao {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.code-coluna {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #30363d;
+}
+
+.code-coluna--js {
+  border-color: #4a3000;
+}
+
+.code-coluna--ts {
+  border-color: #003a2e;
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.code-header--js {
+  background: #2d1a00;
+  color: #e3b341;
+}
+
+.code-header--ts {
+  background: #001f3a;
+  color: #3fb950;
+}
+
+.code-badge {
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.code-badge--js {
+  background: #f0db4f;
+  color: #000;
+}
+
+.code-badge--ts {
+  background: #3178c6;
+  color: #fff;
+}
+
+.code-icone {
+  margin-left: auto;
+}
+
+/* ================================================
+   Rodapé com pontos-chave
+   ================================================ */
+.slide-footer {
+  margin-top: auto;
+}
+
+.pontos-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.ponto-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.78rem;
+  color: #8b949e;
+}
+
+.ponto-icone {
+  color: #3178c6;
+  font-size: 0.65rem;
+}

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 1, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/index.css"],"sourcesContent":["*, *::before, *::after {\n  box-sizing: border-box;\n}\n\nbody {\n  margin: 0;\n  padding: 0;\n  background: #0d1117;\n  color: #e6edf3;\n  font-family: \"Segoe UI\", system-ui, sans-serif;\n  -webkit-font-smoothing: antialiased;\n}\n\n#root {\n  width: 100%;\n  height: 100vh;\n  overflow: hidden;\n}\n\nh1, h2, h3 {\n  margin: 0;\n}\n\np {\n  margin: 0;\n}\n\nbutton {\n  cursor: pointer;\n}\n\n/* Scrollbar customizada */\n::-webkit-scrollbar {\n  width: 6px;\n}\n\n::-webkit-scrollbar-track {\n  background: #161b22;\n}\n\n::-webkit-scrollbar-thumb {\n  background: #30363d;\n  border-radius: 3px;\n}\n\n::-webkit-scrollbar-thumb:hover {\n  background: #484f58;\n}\n"],"names":[],"mappings":"AAAA;;;;AAIA;;;;;;;;;AASA;;;;;;AAMA;;;;AAQA;;;;AAKA;;;;AAIA;;;;AAIA;;;;;AAKA"}}]
+}

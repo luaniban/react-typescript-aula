@@ -1,0 +1,46 @@
+/* [project]/src/index.css [app-client] (css) */
+*, :before, :after {
+  box-sizing: border-box;
+}
+
+body {
+  color: #e6edf3;
+  -webkit-font-smoothing: antialiased;
+  background: #0d1117;
+  margin: 0;
+  padding: 0;
+  font-family: Segoe UI, system-ui, sans-serif;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #161b22;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #484f58;
+}
+
+/*# sourceMappingURL=src_index_css_0w3-wzy._.single.css.map*/
